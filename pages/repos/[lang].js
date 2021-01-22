@@ -5,6 +5,8 @@ export default function Lang({ repositories }) {
 
 	return (
 		<Layout>
+			{
+				repositories ? 
 			<ul className={utilStyles.list}>
 			{repositories.map(repo => (
 				<li className={utilStyles.listItem} key={repo.id}>
@@ -14,6 +16,10 @@ export default function Lang({ repositories }) {
 				</li>
 			))}
 			</ul>
+				
+					:
+					<h2>No Data Found</h2>
+			}
 		</Layout>
 	)
 }
@@ -33,7 +39,7 @@ export async function getStaticProps({ params }) {
 	
 	return {
 		props: {
-			repositories: repositories.items
+			repositories: repositories ? repositories.items : repositories
 		}
 	}
 }
