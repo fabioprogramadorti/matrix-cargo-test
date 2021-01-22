@@ -1,17 +1,18 @@
 import Layout from '../../components/layout'
 import { getAllLanguagesAliases, getReposData } from '../../lib/repos'
+import utilStyles from '../../styles/utils.module.css'
+export default function Lang({ repositories }) {
 
-export default function Lang({ repoData }) {
 	return (
 		<Layout>
-			<ul>
-			{repoData.items.map(repo => {
-				<li>
-					Name: <a href={`http://github.com/${repo.full_name}`} >
-					{repo.name} 
+			<ul className={utilStyles.list}>
+			{repositories.map(repo => (
+				<li className={utilStyles.listItem} key={repo.id}>
+					<a target="_blank" href={`http://github.com/${repo.full_name}`} >
+					<img src={repo.owner.avatar_url}></img> {repo.name} 
 					</a>	
 				</li>
-			})}
+			))}
 			</ul>
 		</Layout>
 	)
@@ -27,11 +28,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-	const repoData = getReposData(params.lang)
+	const repositories = await getReposData(params.lang)
 
 	return {
 		props: {
-			repoData
+			repositories: repositories.items
 		}
 	}
   // Fetch necessary data for the repos using params.lang
