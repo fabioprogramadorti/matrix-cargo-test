@@ -28,12 +28,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+	// Fetch necessary data for the repos using params.lang
 	const repositories = await getReposData(params.lang, '1')
-
+	
 	return {
 		props: {
 			repositories: repositories.items
 		}
 	}
-  // Fetch necessary data for the repos using params.lang
 }
