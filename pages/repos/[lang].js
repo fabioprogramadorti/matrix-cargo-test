@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-	const repositories = await getReposData(params.lang)
+	const repositories = await getReposData(params.lang, '1')
 
 	return {
 		props: {
