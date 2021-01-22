@@ -3,7 +3,7 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
-
+export const siteTitle = 'Github Finder'
 export default function Layout({ children, home }) {
 	return (
 		<div className={styles.container}>

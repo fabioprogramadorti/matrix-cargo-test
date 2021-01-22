@@ -1,13 +1,17 @@
 import Head from 'next/head'
-import Layout from '../components/layout'
+import Layout, { siteTitle } from '../components/layout'
+import utilStyles from '../styles/utils.module.css'
 
 export default function Home() {
-  return (
-    <Layout>
-      <Head>
-        <title>Github Finder</title>
-      </Head>
-      <h1>Github Finder</h1>
-    </Layout>
-  )
+	return (
+		<Layout home>
+			<Head>
+				<title>{siteTitle}</title>
+			</Head>
+			<section className={utilStyles.headingMd}>
+				All laguages here
+			</section>
+
+		</Layout>
+	)
 }
