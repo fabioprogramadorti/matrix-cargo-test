@@ -1,9 +1,8 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../../components/layout'
 import { getAllLanguagesAliases, getReposData } from '../../lib/repos'
-import utilStyles from '../../styles/utils.module.css'
 import Card from '../../components/MyCard'
-import {CardColumns} from 'react-bootstrap'
+import { CardColumns, Spinner } from 'react-bootstrap'
 export default function Lang({ repositories }) {
 
 	return (
@@ -18,9 +17,8 @@ export default function Lang({ repositories }) {
 				<Card repo={repo} />
 			))}
 			</CardColumns>
-				
 					:
-					<h2>No Data Found</h2>
+					<Spinner animation="grow" variant="primary" />
 			}
 		</Layout>
 	)
