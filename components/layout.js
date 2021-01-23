@@ -27,7 +27,6 @@ export default function Layout({ children, home }) {
 			<header className="text-center">
 				<>
 					<h1>Github Finder</h1>
-					<h2>Find repositories on Github by language</h2>
 				</>
 			</header>
 			<Container>{children}</Container>

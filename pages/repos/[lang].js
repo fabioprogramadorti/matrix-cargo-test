@@ -2,7 +2,8 @@ import Head from 'next/head'
 import Layout, { siteTitle } from '../../components/layout'
 import { getAllLanguagesAliases, getReposData } from '../../lib/repos'
 import utilStyles from '../../styles/utils.module.css'
-
+import Card from '../../components/MyCard'
+import {CardColumns} from 'react-bootstrap'
 export default function Lang({ repositories }) {
 
 	return (
@@ -12,15 +13,11 @@ export default function Lang({ repositories }) {
 			</Head>
 			{
 				repositories ? 
-			<li className={utilStyles.list}>
+			<CardColumns>
 			{repositories.map(repo => (
-				<li className={utilStyles.listItem} key={repo.id}>
-					<a target="_blank" href={`http://github.com/${repo.full_name}`} >
-					<img src={repo.owner.avatar_url}></img> {repo.name} 
-					</a>	
-				</li>
+				<Card repo={repo} />
 			))}
-			</li>
+			</CardColumns>
 				
 					:
 					<h2>No Data Found</h2>
