@@ -1,12 +1,13 @@
 import Head from 'next/head'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
+//import styles from './layout.module.css'
+//import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
+import { Container } from "react-bootstrap"
 export const siteTitle = 'Github Finder'
 export default function Layout({ children, home }) {
 	return (
-		<div className={styles.container}>
+		<Container>
 			<Head>
 				<link rel="icon" href="/GitHub-Mark.png" />
 				<meta
@@ -22,22 +23,23 @@ export default function Layout({ children, home }) {
 				<meta name="og:title" content={siteTitle} />
 				<meta name="twitter:card" content="summary_large_image" />
 			</Head>
-			<header className={styles.header}>
+
+			<header className="text-center">
 				<>
-					<h1 className={utilStyles.heading2Xl}>Github Finder</h1>
-					<h2 className={utilStyles.headingLg}>Find repositories on Github by language</h2>
+					<h1>Github Finder</h1>
+					<h2>Find repositories on Github by language</h2>
 				</>
 			</header>
-			<main>{children}</main>
+			<Container>{children}</Container>
 
 			{!home && (
-				<div className={styles.backToHome}>
+				<div>
 					<Link href="/">
 						<a>← Back to home</a>
 					</Link>
 				</div>
 			)}
 
-		</div>
+		</Container>
 	)
 }

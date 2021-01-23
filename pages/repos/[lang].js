@@ -3,7 +3,6 @@ import Layout, { siteTitle } from '../../components/layout'
 import { getAllLanguagesAliases, getReposData } from '../../lib/repos'
 import utilStyles from '../../styles/utils.module.css'
 
-
 export default function Lang({ repositories }) {
 
 	return (
@@ -13,7 +12,7 @@ export default function Lang({ repositories }) {
 			</Head>
 			{
 				repositories ? 
-			<ul className={utilStyles.list}>
+			<li className={utilStyles.list}>
 			{repositories.map(repo => (
 				<li className={utilStyles.listItem} key={repo.id}>
 					<a target="_blank" href={`http://github.com/${repo.full_name}`} >
@@ -21,7 +20,7 @@ export default function Lang({ repositories }) {
 					</a>	
 				</li>
 			))}
-			</ul>
+			</li>
 				
 					:
 					<h2>No Data Found</h2>

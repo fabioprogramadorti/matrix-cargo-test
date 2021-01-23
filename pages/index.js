@@ -3,6 +3,7 @@ import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import { getAllLanguages } from '../lib/repos'
 import Link from 'next/link'
+import { CardColumns, Card, Container } from 'react-bootstrap'
 
 export default function Home({ languages }) {
 	return (
@@ -10,17 +11,28 @@ export default function Home({ languages }) {
 			<Head>
 				<title>{siteTitle}</title>
 			</Head>
-			<section className={utilStyles.headingMd}>
-				<ul className={utilStyles.list}>
-					{languages.map(({ name, aliases }) => (
-						<li className={utilStyles.listItem} key={aliases[0]}>
-							<Link href={`/repos/${aliases[0]}`}>
-								<a>{name}</a>
-							</Link>
-						</li>
-					))}
-				</ul>
-			</section>
+			<Container>
+				<CardColumns>
+					
+				{
+					languages.map(({ name, aliases }) => (
+						<Card border="dark" style={{ width: '15rem' }} className="text-center">
+							<Card.Body>
+								<Card.Title>
+									<Link href={`/repos/${aliases[0]}`}>
+										<a>{name}</a>
+									</Link>
+								</Card.Title>
+
+							</Card.Body>
+						</Card>
+					))
+				}
+				</CardColumns>
+				
+			
+			</Container>
+			
 
 		</Layout>
 	)
