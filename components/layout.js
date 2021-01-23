@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { Container, Navbar } from "react-bootstrap"
 
-import { Container } from "react-bootstrap"
 export const siteTitle = 'Github Finder'
 export default function Layout({ children, home }) {
 	return (
@@ -21,20 +21,32 @@ export default function Layout({ children, home }) {
 				<meta name="og:title" content={siteTitle} />
 				<meta name="twitter:card" content="summary_large_image" />
 			</Head>
+			<Navbar fixed="top" expand="lg" bg="light" variant="light">
+			<Container>
 
-			<header className="text-center">
-				<>
-					<h1>Github Finder</h1>
-				</>
-			</header>
-				{!home && (
-				<div>
-					<Link href="/">
-						<a>← Back to home</a>
-					</Link>
-				</div>
-			)}
-			<Container>{children}</Container>
+					<Navbar.Brand href="#home">
+						<Link href="/">
+							<a style={{color: 'black'}}>{siteTitle}</a>
+						</Link>
+					</Navbar.Brand>
+				<Navbar.Toggle />
+				<Navbar.Collapse className="justify-content-end">
+					{
+						!home && (
+
+							<Navbar.Text>
+								<Link href="/">
+									<a>← Back to home</a>
+								</Link>
+							</Navbar.Text>
+						)
+					}
+				</Navbar.Collapse>
+				
+			</Container>
+			</Navbar>
+			
+			<Container style={{marginTop: '4em'}}>{children}</Container>
 
 		
 
