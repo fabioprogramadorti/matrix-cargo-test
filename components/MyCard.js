@@ -5,7 +5,7 @@ export default function MyCard({ repo, name, alias }) {
 	return (
 		repo?
 			<Card style={{ width: '18rem' }} className="text-center">
-				<Card.Img variant="top" src={repo.owner.avatar_url} />
+				{/* <Card.Img variant="top" src={repo.owner.avatar_url} /> */}
 				<Card.Body>
 					<Card.Title>{repo.name}</Card.Title>
 					<Button variant="primary">

@@ -16,7 +16,7 @@ export default function Lang({ repositories }) {
 	const loadMore = () => {
 		
 		getReposData(lang, page).then(res => {
-			setRepos([...repos, ...res], setPage(page+1))
+			setRepos(repos.concat(res), setPage(page+1))
 		})
 	}
 
@@ -28,8 +28,8 @@ export default function Lang({ repositories }) {
 			{
 				<CardColumns>
 					{
-						repos.map((repo, idx) => (
-							<Card repo={repo} key={idx}/>
+						repos.map(repo => (
+							<Card repo={repo} key={repo.id}/>
 						))
 					}
 				</CardColumns>
