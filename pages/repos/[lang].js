@@ -12,14 +12,15 @@ export default function Lang({ repositories }) {
 			</Head>
 			{
 				repositories ? 
-					<CardColumns>
-					{repositories.map(repo => (
-						<Card repo={repo} />
-					))}
-					</CardColumns>
-				:
-					<div className="text-center">
-						<h2>No data Found</h2>
+			<CardColumns>
+			{repositories.map((repo, idx) => (
+				<Card repo={repo} key={idx}/>
+			))}
+			</CardColumns>
+					:
+					<div>
+
+						<Spinner animation="grow" variant="primary" />
 					</div>
 			}
 		</Layout>
@@ -28,7 +29,7 @@ export default function Lang({ repositories }) {
 
 export async function getStaticPaths() {
 	// Return a list of possible value for lang
-	const paths = await getAllLanguagesAliases()
+	const paths = await getAllLanguagesAliases() || []
 	return {
 		paths,
 		fallback: false
@@ -37,7 +38,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
 	// Fetch necessary data for the repos using params.lang
-	const repositories = await getReposData(params.lang)
+	const repositories = await getReposData(params.lang) || null
 	
 	return {
 		props: {

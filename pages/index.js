@@ -10,6 +10,7 @@ export default function Home({ languages }) {
 
 	const [searchLang, setSearchLang] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
+	
 	const handleChange = event => {
 			setSearchLang(event.target.value);
 	}
@@ -40,10 +41,9 @@ export default function Home({ languages }) {
 
 				<CardColumns>
 				{ 
-					searchResults.map(({ name, aliases }) => (
-						<Card name={name} alias={aliases[0]} />
+					searchResults.map(({ name, aliases }, idx) => (
+						<Card name={name} alias={aliases[0]} key={idx} />
 					))
-						
 				}
 				</CardColumns>
 			</Container>

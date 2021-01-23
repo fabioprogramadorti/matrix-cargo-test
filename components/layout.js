@@ -27,15 +27,16 @@ export default function Layout({ children, home }) {
 					<h1>Github Finder</h1>
 				</>
 			</header>
-			<Container>{children}</Container>
-
-			{!home && (
+				{!home && (
 				<div>
 					<Link href="/">
 						<a>← Back to home</a>
 					</Link>
 				</div>
 			)}
+			<Container>{children}</Container>
+
+		
 
 		</Container>
 	)
