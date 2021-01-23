@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Layout, { siteTitle } from '../../components/layout'
 import { getAllLanguagesAliases, getReposData } from '../../lib/repos'
 import Card from '../../components/MyCard'
-import { CardColumns, Spinner } from 'react-bootstrap'
+import { CardColumns } from 'react-bootstrap'
 export default function Lang({ repositories }) {
 
 	return (
@@ -21,16 +21,7 @@ export default function Lang({ repositories }) {
 	)
 }
 
-export async function getStaticPaths() {
-	// Return a list of possible value for lang
-	const paths = await getAllLanguagesAliases()
-	return {
-		paths,
-		fallback: false
-	}
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
 	// Fetch necessary data for the repos using params.lang
 	const repositories = await getReposData(params.lang)
 	
