@@ -12,14 +12,14 @@ export default function Lang({ repositories }) {
 			</Head>
 			{
 				repositories ? 
-			<CardColumns>
-			{repositories.map(repo => (
-				<Card repo={repo} />
-			))}
-			</CardColumns>
-					:
+					<CardColumns>
+					{repositories.map(repo => (
+						<Card repo={repo} />
+					))}
+					</CardColumns>
+				:
 					<div className="text-center">
-						<Spinner animation="grow" variant="primary" />
+						<h2>No data Found</h2>
 					</div>
 			}
 		</Layout>

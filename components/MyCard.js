@@ -4,7 +4,7 @@ import { Card, Button } from 'react-bootstrap'
 export default function MyCard({ repo, name, alias }) {
 	return (
 		repo?
-			<Card style={{ width: '15rem' }} className="text-center">
+			<Card style={{ width: '18rem' }} className="text-center">
 				<Card.Img variant="top" src={repo.owner.avatar_url} />
 				<Card.Body>
 					<Card.Title>{repo.name}</Card.Title>
@@ -16,7 +16,7 @@ export default function MyCard({ repo, name, alias }) {
 				</Card.Body>
 			</Card>
 			: 
-		<Card border="dark" style={{ width: '15rem' }} className="text-center">
+		<Card border="dark" style={{ width: '18rem' }} className="text-center">
 			<Card.Body>
 				<Card.Title>
 					<Link href={`/repos/${alias}`}>
