@@ -1,11 +1,16 @@
-import Layout from '../../components/layout'
+import Head from 'next/head'
+import Layout, { siteTitle } from '../../components/layout'
 import { getAllLanguagesAliases, getReposData } from '../../lib/repos'
 import utilStyles from '../../styles/utils.module.css'
+
 
 export default function Lang({ repositories }) {
 
 	return (
 		<Layout>
+			<Head>
+				<title>{siteTitle}</title>
+			</Head>
 			{
 				repositories ? 
 			<ul className={utilStyles.list}>
